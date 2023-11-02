@@ -108,26 +108,26 @@ namespace GameProject
             }
             return moving;
         }
-        void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.tag == "FallDetector")
-            {
+        //void OnTriggerEnter2D(Collider2D collision)
+        //{
+        //    if (collision.tag == "FallDetector")
+        //    {
                 
-                if (currentCheckpoint != null)
-                {
-                    transform.position = currentCheckpoint.position;
-                }
-                else
-                {              
-                    transform.position = respawnPoint;
-                }
-            }
-            if (collision.tag == "Checkpoint")
-            {
-                previousCheckpoint = currentCheckpoint;
-                currentCheckpoint = collision.transform;
-            }
-        }
+        //        if (currentCheckpoint != null)
+        //        {
+        //            transform.position = currentCheckpoint.position;
+        //        }
+        //        else
+        //        {              
+        //            transform.position = respawnPoint;
+        //        }
+        //    }
+        //    if (collision.tag == "Checkpoint")
+        //    {
+        //        previousCheckpoint = currentCheckpoint;
+        //        currentCheckpoint = collision.transform;
+        //    }
+        //}
 
 
     }

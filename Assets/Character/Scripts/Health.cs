@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace GameProject
 {
@@ -17,6 +18,8 @@ namespace GameProject
         private SpriteRenderer spriteRend;
         [Header("Components")]
         [SerializeField] private Behaviour[] component;
+
+        public event Action OnPlayerDeath;
         private void Awake()
         {
             currentHealth = startingHealth;
@@ -35,12 +38,15 @@ namespace GameProject
             {
                 if (!dead)
                 {
+                    Debug.Log("Player died, invoking OnPlayerDeath");
                     ani.SetTrigger("Die");
                    foreach (Behaviour component in component)
                     {
                         component.enabled = false;
                     }
                     dead = true;
+                    OnPlayerDeath?.Invoke();
+                    
                 }
             }
         }
